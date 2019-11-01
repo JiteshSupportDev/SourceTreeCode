@@ -1,0 +1,53 @@
+<apex:page controller="sffile.ConnectorsController" showHeader="true"
+		standardStylesheets="false" sidebar="true" applyHtmlTag="true"
+		applyBodyTag="false" docType="html-5.0">
+	
+	<apex:includeLightning />
+	<apex:slds />
+	<apex:pageMessages id="msgs" />
+	<div class="slds-scope">
+		<p class="slds-text-heading--label slds-m-bottom--small">
+			Salesforce Attachment Download
+		</p>
+		<div class="slds-page-header">
+			<div class="slds-grid">
+				<div class="slds-col slds-has-flexi-truncate">
+					<div class="slds-media slds-no-space slds-grow">
+						<div class="slds-media__figure">
+							<svg aria-hidden="true" class="slds-icon slds-icon-standard-user">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink"
+									 xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#user')}">
+								</use>
+							</svg>
+						</div>
+						<div class="slds-media__body">
+							<p class="slds-text-title--caps slds-line-height--reset">
+								Connector Settings
+							</p>
+							<h1 class="slds-page-header__title slds-m-right--small
+								slds-align-middle slds-truncate" title="DBSync">DBSync</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="lightning" />
+		<footer role="contentinfo" class="footer slds-p-around--large">
+			<div class="slds-grid slds-grid--align-spread">
+				<p class="slds-col">Salesforce Attachment Download</p>
+				<p class="slds-col">&copy; DBSync</p>
+				<!-- p class="slds-col">&copy; Vivek G</p-->
+			</div>
+		</footer>
+	</div>
+	<script>
+		$Lightning.use("sffile:ConnectorsApp", function() {
+			$Lightning.createComponent(
+				"sffile:Connectors",
+				{},
+				"lightning",
+				function(cmp) {}
+			);
+		});
+	</script>
+</apex:page>
